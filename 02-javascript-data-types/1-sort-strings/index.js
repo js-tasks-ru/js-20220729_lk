@@ -10,7 +10,7 @@ export function sortStrings(arr, param = "asc") {
     desc: -1,
   };
 
-  if (Array.isArray(arr) || order[param]) {
+  if (Array.isArray(arr) && order[param]) {
     return [...arr].sort(function (a, b) {
       return (
         order[param] * a.localeCompare(b, ["ru", "en"], { caseFirst: "upper" })
@@ -20,3 +20,5 @@ export function sortStrings(arr, param = "asc") {
 
   return null;
 }
+
+sortStrings("");
